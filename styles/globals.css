@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: "Inter", system-ui, sans-serif;
+    --font-poppins: "Poppins", var(--font-inter);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Respeita quem prefere menos movimento */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-surface text-body font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Compensa a navbar fixa ao navegar por âncoras */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  ::selection {
+    @apply bg-brand/15 text-ink;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand;
+  }
+
+  /* Foco visível e consistente para acessibilidade */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  }
+}
