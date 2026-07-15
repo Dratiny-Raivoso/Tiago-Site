@@ -100,4 +100,7 @@ export function Navbar() {
             </ul>
           </motion.div>
         )}
-      </Ani
+      </AnimatePresence>
+    </motion.header>
+  );
+}
